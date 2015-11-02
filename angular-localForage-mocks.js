@@ -3,13 +3,13 @@ angular.module('LocalForageModule', []).factory('$localForage', function ($q) {
   return {
 
     throwsError: false,
-
+    data: 'Key',
     getItem: function (key) {
       var deferred = $q.defer();
       if (this.throwsError) {
         deferred.reject(this.throwsError);
       } else {
-        deferred.resolve("Key");
+        deferred.resolve(this.data);
       }
       return deferred.promise;
     },
